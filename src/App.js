@@ -54,7 +54,7 @@ const App = () => {
     incrementCount();
   }
 
-  function handleHeartClick() {
+  function handleHeart() {
     if (favorits.includes(mainAnimal)) {
       alert('이미 추가된 귀여운 고양이입니다. 🙀')
       return;
@@ -74,7 +74,7 @@ const App = () => {
     <div>
       <PageTitle>🎁{count} 고양이 이미지🎠</PageTitle>
       <AnimalForm updateMainAnimal={updateMainAnimal} />
-      <MainCard handleHeartClick={handleHeartClick} src={mainAnimal} alt="baby bear" choiceFavorite={choiceFavorite} />
+      <MainCard handleHeart={handleHeart} src={mainAnimal} alt="baby bear" choiceFavorite={choiceFavorite} />
       <Favorits favorits={favorits} />
     </div>
   );
