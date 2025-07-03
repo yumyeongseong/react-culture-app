@@ -19,11 +19,16 @@ form {
   margin-bottom: 20px;
 }
 
+.main-card .main-image {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
 .main-card button {
   position: relative;
   left: -40px;
   top: -10px;
-
 }
 
 .favorits {
@@ -39,4 +44,6 @@ form {
 
 .favorits img {
   width: 150px;
+  height: 150px;
+  object-fit: cover;
 }

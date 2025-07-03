@@ -22,7 +22,7 @@ const jsonLocalStorage = {
 // Open API 
 const fetchCat = async (text) => {
 
-  const response = await fetch(`${OPEN_API_DOMAIN}/cat/says/${text}?json=true`);
+  const response = await fetch(`${OPEN_API_DOMAIN}/cat/says/${text}?width=400&height=400&json=true`);
   const responseJson = await response.json();
 
   return responseJson.url
@@ -58,8 +58,8 @@ const App = () => {
 
   }
 
-  async function updateMainAnimal() {
-    const newCat = await fetchCat();
+  async function updateMainAnimal(text) {
+    const newCat = await fetchCat(text);
     console.log('[updateMainAnimal] newCat >>', newCat);
     setMainAnimal(newCat);
 

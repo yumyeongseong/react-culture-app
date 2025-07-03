@@ -1,6 +1,6 @@
 const AnimalItem = ({ src, alt }) => (
   <li>
-    <img src={src} alt={alt} />
+    <img src={src} alt={alt}/>
   </li>
 );
 
