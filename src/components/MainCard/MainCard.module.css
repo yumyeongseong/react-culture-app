@@ -1,0 +1,11 @@
+.mainImage {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.heartButton {
+  position: relative;
+  left: -40px;
+  top: -10px;
+}
