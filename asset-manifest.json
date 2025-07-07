@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/yumyeongseong/react-culture-app/static/css/main.2f1aa410.css",
-    "main.js": "/yumyeongseong/react-culture-app/static/js/main.f5f59fcc.js",
+    "main.css": "/yumyeongseong/react-culture-app/static/css/main.c6d4b102.css",
+    "main.js": "/yumyeongseong/react-culture-app/static/js/main.1982ec21.js",
     "index.html": "/yumyeongseong/react-culture-app/index.html",
-    "main.2f1aa410.css.map": "/yumyeongseong/react-culture-app/static/css/main.2f1aa410.css.map",
-    "main.f5f59fcc.js.map": "/yumyeongseong/react-culture-app/static/js/main.f5f59fcc.js.map"
+    "main.c6d4b102.css.map": "/yumyeongseong/react-culture-app/static/css/main.c6d4b102.css.map",
+    "main.1982ec21.js.map": "/yumyeongseong/react-culture-app/static/js/main.1982ec21.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f1aa410.css",
-    "static/js/main.f5f59fcc.js"
+    "static/css/main.c6d4b102.css",
+    "static/js/main.1982ec21.js"
   ]
 }
