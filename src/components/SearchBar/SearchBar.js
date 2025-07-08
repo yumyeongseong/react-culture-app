@@ -1,13 +1,17 @@
-// src/components/SearchBar/SearchBar.js
 import React, { useState, useEffect } from 'react';
 import styles from './SearchBar.module.css';
-import regionData from '../../data/region.json'; // 경로 확인 필수
+import regionData from '../../Data/region.json';
 
 const KEYWORDS = [
-  '불꽃축제', '꽃축제', '문화재', '전통공연', '야외전시',
-  '콘서트', '무용', '연극', '국악', '클래식',
-  '미술', '전시', '체험행사', '전통놀이', '지역축제','전체'
+  '전체',
+  '문화재', '전통공연',
+  '야외전시', '콘서트', '무용', '연극', '국악',
+  '클래식', '미술', '전시', '체험행사', '전통놀이', '지역축제',
+  '인디공연', '북콘서트', '뮤지컬', '마임', '퍼포먼스',
+  '디자인', '공예', '사진전', '문화기획', '야시장',
+  '푸드페스티벌', '도서전', '가족극', '인형극', '소극장공연'
 ];
+
 
 const SearchBar = ({ onSearch }) => {
   const [selectedKeyword, setSelectedKeyword] = useState('');
@@ -15,14 +19,18 @@ const SearchBar = ({ onSearch }) => {
   const [selectedSigungu, setSelectedSigungu] = useState('');
   const [sigunguList, setSigunguList] = useState([]);
 
-  // 시/도 선택 시 군/구 자동 로딩
   useEffect(() => {
-    if (selectedSido && regionData[selectedSido]) {
-      setSigunguList(regionData[selectedSido]);
+    if (selectedSido === '전체') {
+      setSigunguList(['전체']);
+      setSelectedSigungu('전체');
+    } else if (selectedSido && regionData[selectedSido]) {
+      const guList = regionData[selectedSido];
+      setSigunguList(guList);
+      setSelectedSigungu('');
     } else {
       setSigunguList([]);
+      setSelectedSigungu('');
     }
-    setSelectedSigungu(''); // 군/구 초기화
   }, [selectedSido]);
 
   const handleSearch = () => {
@@ -30,8 +38,12 @@ const SearchBar = ({ onSearch }) => {
       alert('모든 항목을 선택해주세요.');
       return;
     }
-    const fullArea = `${selectedSido} ${selectedSigungu}`;
-    onSearch({ sigungu: fullArea, keyword: selectedKeyword });
+
+    const fullArea = selectedSido === '전체' ? '전체' : `${selectedSido} ${selectedSigungu}`;
+    onSearch({
+      sigungu: fullArea,
+      keyword: selectedKeyword,
+    });
   };
 
   return (
@@ -43,6 +55,7 @@ const SearchBar = ({ onSearch }) => {
 
       <select onChange={(e) => setSelectedSido(e.target.value)} value={selectedSido}>
         <option value="" disabled>시 선택</option>
+        <option value="전체">전체</option>
         {Object.keys(regionData).map(sido => (
           <option key={sido} value={sido}>{sido}</option>
         ))}

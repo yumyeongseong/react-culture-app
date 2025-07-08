@@ -1,4 +1,3 @@
-// src/components/CultureCard/CultureCardList.js
 import React, { useState } from 'react';
 import CultureCard from './CultureCard';
 import Modal from '../Modal/Modal';
@@ -17,15 +16,16 @@ const CultureCardList = ({ items }) => {
   return (
     <div>
       {items.map((item, index) => (
-        <div key={index} onClick={() => handleClick(item)}>
-          <CultureCard
-            title={item.title?.[0]}
-            place={item.place?.[0]}
-            startDate={item.startDate?.[0]}
-            endDate={item.endDate?.[0]}
-            imageUrl={item.mainImg?.[0]}
-          />
-        </div>
+        <CultureCard
+          key={index}
+          title={item.title?.[0]}
+          place={item.place?.[0]}
+          startDate={item.startDate?.[0]}
+          endDate={item.endDate?.[0]}
+          imageUrl={item.mainImg?.[0]}
+          item={item}
+          onClick={() => handleClick(item)} // 카드 클릭에만 반응
+        />
       ))}
       <Modal item={selectedItem} onClose={closeModal} />
     </div>
